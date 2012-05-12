@@ -23,7 +23,7 @@ var PartyView = new Class({
 	
 	onSongButtonClick: function(event) {
 		event.preventDefault();
-		this.fireEvent("requestsong");
+		this.fireEvent("startradio");
 	}
 });
 

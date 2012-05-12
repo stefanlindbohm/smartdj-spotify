@@ -7,13 +7,11 @@ var App = new Class({
 	jukebox: null,
 	
 	initialize: function() {
-		this.models = sp.require("sp://import/scripts/api/models");
-		
 		this.createEventView = new CreatePartyView();
 		this.createEventView.addEvent("created", this.onPartyCreated.bind(this));
 		
 		this.partyView = new PartyView();
-		this.partyView.addEvent("requestsong", this.onRequestSong.bind(this));
+		this.partyView.addEvent("startradio", this.onStart.bind(this));
 		
 		this.createEventView.show();
 	},
@@ -25,12 +23,12 @@ var App = new Class({
 		this.partyView.show();
 	},
 	
-	onRequestSong: function() {
+	onStart: function() {
 		if (this.jukebox == null) {
 			console.log("Can't play songs without a Jukebox!");
 			return;
 		}
-		this.jukebox.playNextSong();
+		this.jukebox.start();
 	}
 });
 
