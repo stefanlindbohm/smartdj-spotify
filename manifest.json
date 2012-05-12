@@ -1,0 +1,23 @@
+{
+	"BundleIdentifier": "smartdj",
+	"BundleType": "Application",
+	"BundleVersion": "0.1",
+	"RequiredInterface": 1,
+	"VendorIdentifier": "com.kolizz",
+	"AppName": {
+		"en": "Smart DJ"
+	},
+	"AppIcon": {
+		
+	},
+	"AppDescription": {
+		"en": "Listen to music that matches you and your friends' mood and taste"
+	},
+	"SupportedLanguages": [
+		"en"
+	],
+	"RequiredPermissions": [
+		"http://smartdj.herokuapp.com",
+		"http://smartdj.local"
+	]
+}
