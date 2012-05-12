@@ -24,7 +24,7 @@ var Jukebox = new Class({
 	},
 	
 	start: function() {
-		console.log("starting");
+		console && console.log("starting");
 		this.currentPlaylist = new models.Playlist();
 		models.player.ignore(models.EVENT.CHANGE, this.playerObserver);
 		models.player.observe(models.EVENT.CHANGE, this.playerObserver);
@@ -33,33 +33,33 @@ var Jukebox = new Class({
 	},
 	
 	stop: function() {
-		console.log("stopping");
+		console && console.log("stopping");
 		this.currentPlaylist = null;
 		models.player.ignore(models.EVENT.CHANGE, this.playerObserver);
 	},
 	
 	fillPlaylist: function() {
 		if (this.currentPlaylist == null) {
-			console.log("No playlist to fill");
+			console && console.log("No playlist to fill");
 			return;
 		}
 		if (models.player.track == null) {
-			console.log("No track to reference");
+			console && console.log("No track to reference");
 			return;
 		}
 		while (this.currentPlaylist.indexOf(models.player.track) > 0) {
 			this.currentPlaylist.remove(this.currentPlaylist.get(0));
 		}
 		if (this.currentPlaylist.length <= 1) {
-			console.log("Filling up the playlist");
+			console && console.log("Filling up the playlist");
 			this.nextSongRequest.send();
 		} else {
-			console.log("playlist is good");
+			console && console.log("playlist is good");
 		}
 		var tracks = this.currentPlaylist.tracks;
 		for (var i = 0; i < tracks.length; i++) {
 			var track = tracks[i];
-			console.log(track);
+			console && console.log(track);
 		}
 	},
 	
@@ -73,11 +73,11 @@ var Jukebox = new Class({
 	},
 	
 	onTrackFailure: function() {
-		console.log("Couldn't get a next track to play :(");
+		console && console.log("Couldn't get a next track to play :(");
 	},
 	
 	onPlayerChange: function(event) {
-		console.log(event);
+		console && console.log(event);
 		if (event.data.contextclear) {
 			// Switched out of radio context, give up control
 			this.stop();
