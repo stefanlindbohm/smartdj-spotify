@@ -1,0 +1,7 @@
+/* Views */
+.view {
+	display: none;
+}
+.view.visible {
+	display: block;
+}

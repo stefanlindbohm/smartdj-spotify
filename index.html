@@ -3,8 +3,22 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Smart DJ</title>
+		<link rel="stylesheet" href="smartdj.css">
 	</head>
-	<body>
-		<h1>Hello</h1>
+	<body onload="var App = getSpotifyApi(1).require('app/app').App; new App()">
+		<div id="create-party" class="view">
+			<h1>Create a party</h1>
+			<form action="http://smartdj.local:3000/api/parties.json">
+				<input type="text" name="name" />
+				<input type="submit" value="Create party" />
+			</form>
+		</div>
+		<div id="party" class="view">
+			<h1 id="party-name"></h1>
+			<p>This is your link, share it with friends so they can contribute their taste:</p>
+			<p><input id="party-link" type="text" disabled /></p>
+			<p><button id="party-song-button">Play a song we like</button></p>
+		</div>
+		<script src="lib/mootools-core-1.4.5-full-nocompat-yc.js" type="text/javascript"></script>
 	</body>
 </html>
